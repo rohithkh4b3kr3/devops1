@@ -39,6 +39,13 @@ export default function App() {
         <div>Date: {Data.date}</div>
         <div>Time: {Data.time}</div>
       </h1>
+
+      <div className="text-cyan-300 text-xl leading-relaxed font-medium">
+  <p>Server Status: {Data.status}</p>
+  <p>Message: {Data.message}</p>
+  <p>Date: {Data.date}</p>
+  <p>Time: {Data.time}</p>
+</div>
     </>
   );
 }
