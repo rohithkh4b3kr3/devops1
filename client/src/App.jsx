@@ -1,44 +1,44 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function App() {
   const [Data, setData] = useState({
-    message: "",
-    status: "",
-    time: "",
-    date:"",
+    message: '',
+    status: '',
+    time: '',
+    date: '',
   });
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/message")
+    fetch('http://localhost:3000/api/message')
       .then((res) => res.json())
       .then((data) =>
         setData({
-          message: data.message || "No message",
-          status: "Online",
+          message: data.message || 'No message',
+          status: 'Online',
           time: new Date().toLocaleTimeString(),
           date: new Date().toLocaleDateString(),
-        })
+        }),
       )
       .catch((err) => {
-        console.log("Error fetching data:", err);
+        console.log('Error fetching data:', err);
         setData({
-          message: "Error connecting to server",
-          status: "Offline",
-          time: "--",
-          date: "--",
+          message: 'Error connecting to server',
+          status: 'Offline',
+          time: '--',
+          date: '--',
         });
       });
   }, []);
 
   return (
     <>
-    <h1 className="text-3xl text-cyan-300 text-semibold">
-      Server Status: {Data.status} <br />
-      Message: {Data.message} <br />
-      Date: {Data.date} <br />
-      Time: {Data.time} <br />
-    </h1>
+      <h1 className="text-2xl font-semibold text-cyan-300 leading-relaxed space-y-1">
+        <div>Server Status: {Data.status}</div>
+        <div>Message: {Data.message}</div>
+        <div>Date: {Data.date}</div>
+        <div>Time: {Data.time}</div>
+      </h1>
     </>
   );
 }
