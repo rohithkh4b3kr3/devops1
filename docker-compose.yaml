@@ -1,0 +1,24 @@
+services:
+  client:
+    build: ./client
+    ports:
+      - "3001:80"
+    container_name: react-client
+    depends_on:
+      - server
+    networks:
+      - fullstack-network
+
+  server:
+    build: ./server
+    ports:
+      - "3000:3000"
+    container_name: express-server
+    environment:
+      - PORT=3000
+    networks:
+      - fullstack-network
+
+networks:
+  fullstack-network:
+    driver: bridge
