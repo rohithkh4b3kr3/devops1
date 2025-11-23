@@ -6,7 +6,7 @@ export default function App() {
     message: "",
     status: "",
     time: "",
-    date: "",
+    date:"",
   });
 
   useEffect(() => {
@@ -32,47 +32,13 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="p-6 rounded-xl border border-cyan-300/40 bg-neutral-900/40 backdrop-blur-sm w-full max-w-md shadow-[0_0_20px_rgba(34,211,238,0.15)]"
-      >
-        <h1 className="text-3xl font-semibold text-cyan-300 mb-4 text-center">
-          Server Dashboard
-        </h1>
-
-        <div className="space-y-3 text-cyan-100 text-lg">
-          <p className="flex justify-between">
-            <span className="text-cyan-300/70">Status:</span>
-            <span
-              className={
-                Data.status === "Online"
-                  ? "text-green-400"
-                  : "text-red-400"
-              }
-            >
-              {Data.status}
-            </span>
-          </p>
-
-          <p className="flex justify-between">
-            <span className="text-cyan-300/70">Message:</span>
-            <span className="text-cyan-200">{Data.message}</span>
-          </p>
-
-          <p className="flex justify-between">
-            <span className="text-cyan-300/70">Date:</span>
-            <span>{Data.date}</span>
-          </p>
-
-          <p className="flex justify-between">
-            <span className="text-cyan-300/70">Time:</span>
-            <span>{Data.time}</span>
-          </p>
-        </div>
-      </motion.div>
-    </div>
+    <>
+    <h1 className="text-3xl text-cyan-300 text-semibold">
+      Server Status: {Data.status} <br />
+      Message: {Data.message} <br />
+      Date: {Data.date} <br />
+      Time: {Data.time} <br />
+    </h1>
+    </>
   );
 }
